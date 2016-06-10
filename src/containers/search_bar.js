@@ -12,15 +12,20 @@ export default class SearchBar extends Component {
   }
 
   onInputChange(event) {
-    console.log(this.state.term)
     this.setState({
       term: event.target.value
     })
   }
 
+  onFormSubmit(event) {
+    event.preventDefault()
+
+    // go fetch weather data
+  }
+
   render() {
     return (
-      <form className="input-group">
+      <form onSubmit={this.onFormSubmit} className="input-group">
         <input
         placeholder="Search for a City"
         className="form-control"
@@ -29,6 +34,7 @@ export default class SearchBar extends Component {
         />
         <span className="input-group-btn">
           <button type="submit" className="btn btn-secondary">Submit</button>
+        }
         </span>
       </form>
     )
